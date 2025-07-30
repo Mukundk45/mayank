@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CV Builder</h1>
+        
+        <div class="builder-container">
+            <div class="form-section">
+                <form id="cv-form">
+                    <!-- Personal Information -->
+                    <fieldset>
+                        <legend><i class="fas fa-user"></i> Personal Information</legend>
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profession">Profession</label>
+                            <input type="text" id="profession" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="url" id="linkedin">
+                        </div>
+                        <div class="form-group">
+                            <label for="github">GitHub</label>
+                            <input type="url" id="github">
+                        </div>
+                        <div class="form-group">
+                            <label for="about">About Me</label>
+                            <textarea id="about" rows="4" required></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- Education -->
+                    <fieldset>
+                        <legend><i class="fas fa-graduation-cap"></i> Education</legend>
+                        <div id="education-fields">
+                            <div class="education-entry">
+                                <div class="form-group">
+                                    <label>Degree</label>
+                                    <input type="text" class="degree" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Institution</label>
+                                    <input type="text" class="institution" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Year</label>
+                                    <input type="text" class="education-year" required>
+                                </div>
+                                <button type="button" class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-education" class="add-btn">Add Education</button>
+                    </fieldset>
+
+                    <!-- Experience -->
+                    <fieldset>
+                        <legend><i class="fas fa-briefcase"></i> Work Experience</legend>
+                        <div id="experience-fields">
+                            <div class="experience-entry">
+                                <div class="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" class="job-title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input type="text" class="company" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration</label>
+                                    <input type="text" class="duration" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="job-description" rows="3"></textarea>
+                                </div>
+                                <button type="button" class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-experience" class="add-btn">Add Experience</button>
+                    </fieldset>
+
+                    <!-- Skills -->
+                    <fieldset>
+                        <legend><i class="fas fa-tools"></i> Skills</legend>
+                        <div id="skills-fields">
+                            <div class="skills-entry">
+                                <div class="form-group">
+                                    <label>Skill</label>
+                                    <input type="text" class="skill" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Level</label>
+                                    <select class="skill-level">
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                        <option value="Expert">Expert</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-skill" class="add-btn">Add Skill</button>
+                    </fieldset>
+
+                    <div class="form-actions">
+                        <button type="button" id="generate-cv">Generate CV</button>
+                        <button type="button" id="reset-form">Reset Form</button>
+                        <button type="button" id="download-cv">Download CV</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="preview-section">
+                <div id="cv-preview">
+                    <div class="cv-template">
+                        <header>
+                            <h1 id="preview-name">Your Name</h1>
+                            <h2 id="preview-profession">Your Profession</h2>
+                        </header>
+                        
+                        <div class="cv-content">
+                            <div class="left-column">
+                                <section class="contact-info">
+                                    <h3>Contact</h3>
+                                    <p id="preview-email">Email: your.email@example.com</p>
+                                    <p id="preview-phone">Phone: (123) 456-7890</p>
+                                    <p id="preview-address">Address: Your Address</p>
+                                    <p id="preview-linkedin">LinkedIn: linkedin.com/in/yourprofile</p>
+                                    <p id="preview-github">GitHub: github.com/yourusername</p>
+                                </section>
+                                
+                                <section class="skills">
+                                    <h3>Skills</h3>
+                                    <ul id="preview-skills">
+                                        <li>Skill 1 - Level</li>
+                                        <li>Skill 2 - Level</li>
+                                    </ul>
+                                </section>
+                            </div>
+                            
+                            <div class="right-column">
+                                <section class="about">
+                                    <h3>About Me</h3>
+                                    <p id="preview-about">A brief description about yourself goes here.</p>
+                                </section>
+                                
+                                <section class="education">
+                                    <h3>Education</h3>
+                                    <div id="preview-education">
+                                        <div class="education-item">
+                                            <h4>Degree Name</h4>
+                                            <p class="institution">Institution Name</p>
+                                            <p class="year">Year</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <section class="experience">
+                                    <h3>Experience</h3>
+                                    <div id="preview-experience">
+                                        <div class="experience-item">
+                                            <h4>Job Title</h4>
+                                            <p class="company">Company Name</p>
+                                            <p class="duration">Duration</p>
+                                            <p class="description">Job description goes here.</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
